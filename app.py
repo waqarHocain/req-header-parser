@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request, redirect
 
 
 app = Flask(__name__)
@@ -19,3 +19,12 @@ def index():
             language=lang,
             software=os
             )
+
+
+@app.route("/<path:path>")
+def to_index(path):
+    return redirect("/")
+
+
+if __name__ == "__main__":
+    app.run()
